@@ -1,65 +1,38 @@
 import { Routes, Route, Navigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
-import Login from "../pages/auth/Login";
-import VerifyLoginOtp from "../pages/auth/VerifyLoginOtp";
+import Login from "../pages/Login";
+import Signup from "../pages/Signup";
+import DashboardRootPage from "../pages/Dashboard/DashboardRootPage";
 
-import ProtectedRoute from "./ProtectedRoute";
-import RoleRoute from "./RoleRoute";
+/**
+ * Wraps any route that requires an authenticated user.
+ * Redirects to /login if there's no token in the store.
+ */
+function ProtectedRoute({ children }) {
+  const { token } = useSelector((state) => state.auth);
+  return token ? children : <Navigate to="/login" replace />;
+}
 
-import AdminLayout from "../layouts/AdminLayout";
-import ParentLayout from "../layouts/ParentLayout";
+function DashboardPlaceholder() {
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-[#0a0e14] text-white">
+      <p>You're logged in. Replace this with your real dashboard.</p>
+    </div>
+  );
+}
 
-
-const AppRoutes = () => {
+export default function AppRoutes() {
   return (
     <Routes>
-
-      {/* Public routes */}
-      <Route 
-        path="/login" 
-        element={<Login />} 
+      <Route path="/" element={<Navigate to="/login" replace />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/signup" element={<Signup />} />
+      <Route
+        path="/dashboard"
+        element={<DashboardRootPage/>}
       />
-
-      <Route 
-        path="/verify-login-otp" 
-        element={<VerifyLoginOtp />} 
-      />
-
-
-      {/* Parent Home */}
-      <Route element={<ProtectedRoute />}>
-        <Route element={<RoleRoute allowedRoles={["parent"]} />}>
-
-          <Route 
-            path="/" 
-            element={<ParentLayout />} 
-          />
-
-        </Route>
-      </Route>
-
-
-      {/* Admin */}
-      <Route element={<ProtectedRoute />}>
-        <Route element={<RoleRoute allowedRoles={["admin"]} />}>
-
-          <Route 
-            path="/admin/*" 
-            element={<AdminLayout />} 
-          />
-
-        </Route>
-      </Route>
-
-
-      {/* Unknown route - MUST BE LAST */}
-      <Route 
-        path="*" 
-        element={<Navigate to="/login" replace />} 
-      />
-
+      <Route path="*" element={<Navigate to="/login" replace />} />
     </Routes>
   );
-};
-
-export default AppRoutes;
+}
