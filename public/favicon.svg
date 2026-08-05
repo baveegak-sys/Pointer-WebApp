@@ -1,0 +1,39 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 64 64"
+>
+  <!-- Large black background -->
+  <rect
+    x="1"
+    y="1"
+    width="62"
+    height="62"
+    rx="15"
+    fill="#111111"
+    stroke="#555555"
+    stroke-width="2"
+  />
+
+  <!-- Large white P -->
+  <path
+    d="
+      M15 53
+      V11
+      H35
+      C46 11 52 17 52 27
+      C52 37 46 43 35 43
+      H26
+      V53
+      Z
+
+      M26 21
+      V33
+      H34
+      C39 33 41 31 41 27
+      C41 23 39 21 34 21
+      Z
+    "
+    fill="#FFFFFF"
+    fill-rule="evenodd"
+  />
+</svg>
