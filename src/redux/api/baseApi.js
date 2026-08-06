@@ -4,7 +4,7 @@ export const baseApi = createApi({
   reducerPath: "baseApi",
 
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://localhost:5000/api",
+    baseUrl: "http://localhost:5001/api",
 
     prepareHeaders: (headers) => {
       const token = localStorage.getItem("accessToken");
