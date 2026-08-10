@@ -26,7 +26,7 @@ const AppRoutes = () => {
       />
 
 
-      {/* Parent Home */}
+      {/* Parent ParentDashboardHome */}
       <Route element={<ProtectedRoute />}>
         <Route element={<RoleRoute allowedRoles={["parent"]} />}>
 

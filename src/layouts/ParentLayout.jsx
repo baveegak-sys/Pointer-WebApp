@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 
-import Home from "../pages/parents/Home";
+import ParentDashboardHomePage from "../pages/parents/./ParentDashboardHome";
 
 
 const ParentLayout = () => {
@@ -10,7 +10,7 @@ const ParentLayout = () => {
 
       <Route
         path="/"
-        element={<Home />}
+        element={<ParentDashboardHomePage />}
       />
 
     </Routes>
