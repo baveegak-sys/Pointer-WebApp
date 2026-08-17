@@ -197,6 +197,54 @@
     box-shadow: 0 0 10px #cb4a4a;
 }
 
+/* Stat cards */
+
+.dashboard-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 14px;
+    margin-bottom: 22px;
+}
+
+.stat-card {
+    padding: 18px 20px;
+    border: 1px solid #2d2d2d;
+    border-radius: 14px;
+    background: linear-gradient(180deg, #141414 0%, #0e0e0e 100%);
+}
+
+.stat-card-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 0 10px;
+    color: #787878;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.stat-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #555555;
+}
+
+.stat-dot.success {
+    background: #4acb70;
+    box-shadow: 0 0 8px #4acb70;
+}
+
+.stat-card-value {
+    margin: 0;
+    font-family: "Quantico", sans-serif;
+    font-size: 30px;
+    letter-spacing: 1px;
+    color: #ffffff;
+}
+
 /* Table card */
 
 .dashboard-card {
@@ -271,6 +319,195 @@
     font-weight: 700;
     letter-spacing: 1px;
     text-transform: uppercase;
+}
+
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    border: 1px solid #303030;
+    border-radius: 20px;
+    background: #191919;
+    color: #a9a9a9;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.status-badge .stat-dot {
+    width: 6px;
+    height: 6px;
+}
+
+.status-badge.active {
+    border-color: #2a4a35;
+    color: #7fe3a2;
+}
+
+.status-badge.inactive {
+    color: #7a7a7a;
+}
+
+.action-cell {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.icon-button {
+    display: grid;
+    place-items: center;
+    width: 30px;
+    height: 30px;
+    border: 1px solid #2d2d2d;
+    border-radius: 8px;
+    background: #161616;
+    color: #a9a9a9;
+    cursor: pointer;
+    font-size: 12px;
+    transition: border-color 150ms ease, color 150ms ease,
+    background-color 150ms ease;
+}
+
+.icon-button:hover {
+    border-color: #454545;
+    color: #ffffff;
+    background: #1e1e1e;
+}
+
+.icon-button.danger:hover {
+    border-color: #6e2f2f;
+    color: #ff8080;
+    background: #241414;
+}
+
+/* Modal */
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    display: grid;
+    place-items: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(2px);
+}
+
+.modal-card {
+    width: 100%;
+    max-width: 420px;
+    padding: 28px;
+    border: 1px solid #2d2d2d;
+    border-radius: 16px;
+    background: linear-gradient(180deg, #171717 0%, #101010 100%);
+}
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.modal-title {
+    margin: 0;
+    font-family: "Quantico", sans-serif;
+    font-size: 18px;
+    letter-spacing: 2px;
+}
+
+.modal-close {
+    border: none;
+    background: transparent;
+    color: #787878;
+    cursor: pointer;
+    font-size: 18px;
+    line-height: 1;
+}
+
+.modal-close:hover {
+    color: #ffffff;
+}
+
+.modal-row {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 16px;
+}
+
+.modal-row label {
+    color: #787878;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.modal-row span {
+    color: #dcdcdc;
+    font-size: 14px;
+}
+
+.modal-row input {
+    height: 44px;
+    padding: 0 13px;
+    border: 1px solid #2d2d2d;
+    border-radius: 10px;
+    background: #111111;
+    color: #ffffff;
+    font: inherit;
+    font-size: 13px;
+    outline: none;
+}
+
+.modal-row input:focus {
+    border-color: #686868;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 22px;
+}
+
+.modal-button {
+    padding: 10px 18px;
+    border: 1px solid #454545;
+    border-radius: 9px;
+    cursor: pointer;
+    font-family: "Quantico", sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.modal-button.primary {
+    border-color: #454545;
+    background: #ffffff;
+    color: #080808;
+}
+
+.modal-button.primary:hover {
+    background: #e7e7e7;
+}
+
+.modal-button.secondary {
+    background: transparent;
+    color: #ffffff;
+}
+
+.modal-button.secondary:hover {
+    background: #191919;
+}
+
+.modal-button:disabled {
+    cursor: not-allowed;
+    opacity: 0.55;
 }
 
 .dashboard-state {

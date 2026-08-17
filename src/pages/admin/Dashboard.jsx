@@ -6,7 +6,7 @@ import { logout } from "../../redux/features/auth/authSlice";
 import UserManagement from "./UserManagement";
 import "../../css/dashboard/admin-dashboard.css";
 
-const NAV_ITEMS = [{ key: "users", label: "User Management", icon: "U" }];
+const NAV_ITEMS = [{ key: "users", label: "Parent Management", icon: "P" }];
 
 const Dashboard = () => {
     const navigate = useNavigate();
